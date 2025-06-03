@@ -8,9 +8,11 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5001;
 
+app.use(express.json());
+
 connectDB();
 
-app.use("api/notes", notesRoute);
+app.use("/api/notes", notesRoute);
 
 app.listen(PORT, () => {
   console.log('Server is running on port:', PORT);
